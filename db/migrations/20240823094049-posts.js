@@ -7,9 +7,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      owner: {
+      owner_id: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       title: {
         allowNull: false,
@@ -22,11 +28,11 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },

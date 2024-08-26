@@ -10,10 +10,26 @@ module.exports = {
       post_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        reference: {
+          model: 'posts',
+          key: 'id',
+        },
       },
       tag_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        reference: {
+          model: 'tags',
+          key: 'id',
+        },
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
       },
     });
   },
